@@ -14,8 +14,6 @@ import org.springframework.context.annotation.PropertySource;
 
 
 @Configuration
-@EnableGremlinRepositories(
-        basePackages = "com.sfeir.graph.assetmanager.repository")
 @EnableConfigurationProperties(GremlinProperties.class)
 @PropertySource("classpath:application.properties")
 public class GraphRepositoryConfig extends GremlinConfigurationSupport {

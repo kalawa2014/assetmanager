@@ -34,11 +34,18 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.data:spring-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
 	compileOnly 'org.projectlombok:lombok'
 
 	compile ("org.springframework.data:spring-data-commons:${springDataVersion}")
 	compile ("com.microsoft.spring.data.gremlin:spring-data-gremlin:${springDataGremlin}")
 	compile ("org.apache.tinkerpop:gremlin-driver:${tinkerpopDriver}")
+	runtimeOnly 'org.postgresql:postgresql'
 
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'

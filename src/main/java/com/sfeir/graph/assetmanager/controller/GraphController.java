@@ -20,4 +20,10 @@ public class GraphController {
     public List<Object> getAll() {
         return graphServices.getAllGraph();
     }
+
+
+    @RequestMapping(value = "graphs2", method = RequestMethod.GET)
+    public List<Object> getAll2() {
+        return this.graphServices.getAllVertex();
+    }
 }
