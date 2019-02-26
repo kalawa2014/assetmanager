@@ -9,7 +9,6 @@ import org.springframework.data.annotation.Id;
 @Edge
 public abstract class AAssetNode {
     @Id
-    @GeneratedValue
     private String id;
 
     private String label;
@@ -17,5 +16,7 @@ public abstract class AAssetNode {
     private String name;
 
     private long value;
+
+    private String assests = "assets";
 
 }

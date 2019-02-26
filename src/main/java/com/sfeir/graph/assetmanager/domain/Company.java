@@ -5,5 +5,8 @@ import com.sfeir.graph.assetmanager.util.LabelType;
 
 public class Company extends AAssetNode {
 
-    private String label = LabelType.COMPANY.name();
+    public Company() {
+        super();
+        this.setLabel(LabelType.COMPANY.name());
+    }
 }

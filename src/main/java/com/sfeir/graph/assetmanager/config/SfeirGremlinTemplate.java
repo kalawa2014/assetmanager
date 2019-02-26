@@ -23,6 +23,7 @@ import com.microsoft.spring.data.gremlin.query.GremlinOperations;
 import com.microsoft.spring.data.gremlin.query.query.GremlinQuery;
 import com.microsoft.spring.data.gremlin.query.query.QueryFindScriptGenerator;
 import com.microsoft.spring.data.gremlin.query.query.QueryScriptGenerator;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.reflect.FieldUtils;
 import org.apache.tinkerpop.gremlin.driver.Client;
 import org.apache.tinkerpop.gremlin.driver.Result;
@@ -40,9 +41,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ExecutionException;
+import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 
+@Slf4j
 public class SfeirGremlinTemplate implements GremlinOperations, ApplicationContextAware {
 
 	private SfeirGremlinFactory factory;
@@ -280,6 +283,10 @@ public class SfeirGremlinTemplate implements GremlinOperations, ApplicationConte
 		}
 
 		final List<String> queryList = source.getGremlinScriptLiteral().generateFindAllScript(source);
+
+		String strQuery = queryList.stream().collect(Collectors.joining("\n "));
+		log.info("GremlinTemplate query: {}", strQuery);
+
 		final List<Result> results = executeQuery(queryList);
 
 		if (results.isEmpty()) {

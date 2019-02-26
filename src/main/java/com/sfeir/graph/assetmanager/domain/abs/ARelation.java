@@ -15,12 +15,13 @@ import java.util.Date;
 public abstract class ARelation {
 
     @Id
-    @GeneratedValue
     private String id;
 
     private String label;
 
     private Date date;
+
+    private String assests = "assets";
 
     @EdgeFrom
     private AAssetNode nodeFrom;
